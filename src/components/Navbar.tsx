@@ -15,7 +15,6 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className={`mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52   ${dark ? "bg-darkBackground" : "bg-background"}`}>
                         <li><a className=' font-semibold' href='/home'>Farmers</a></li>
-                        <li><a className=' font-semibold' href='/orders'>Orders</a></li>
                         <li><a className=' font-semibold' href='/cart'>Cart</a></li>
                         <li><a className=' font-semibold' href='/chat'>Chat</a></li>
                         <li>
@@ -37,7 +36,6 @@ const Navbar = () => {
             <div className="flex-none gap-2 navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 ">
                     <li><a className=' font-semibold' href='/home'>Farmers</a></li>
-                    <li><a className=' font-semibold' href='/orders'>Orders</a></li>
                     <li><a className=' font-semibold' href='/cart'>Cart</a></li>
                     <li><a className=' font-semibold' href='/chat'>Chat</a></li>
                 </ul>
