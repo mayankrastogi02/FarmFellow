@@ -15,6 +15,7 @@ import HomePage from './pages/HomePage.tsx';
 import Cart from './pages/Cart.tsx';
 import Login from './pages/Login.tsx';
 import Profile from './pages/Profile.tsx';
+import Chat from './pages/Chat.tsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
     path: "/cart",
     element: <Cart />,
   },
+  {
+    path: "/chat",
+    element: <Chat />,
+  }
 ]);
 
 
@@ -79,7 +84,7 @@ function App() {
           <div className='flex flex-col items-center font-sans' >
             <Navbar />
           </div>
-          <div className='w-full mt-[4rem]'>
+          <div className='w-full'>
             <RouterProvider router={router} />
           </div>
         </div>
