@@ -1,24 +1,27 @@
-import React, { useContext } from 'react';
-import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { SunIcon, MoonIcon } from '@modulz/radix-icons';
+import { UnstyledButton, useMantineColorScheme } from '@mantine/core';
+import { RiContrast2Fill } from "@react-icons/all-files/ri/RiContrast2Fill";
+import { RiContrast2Line } from "@react-icons/all-files/ri/RiContrast2Line"
 
 function LightDarkButton() {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const dark = colorScheme === 'dark';
 
     return (
-        <ActionIcon
-            variant="outline"
-            color={dark ? 'yellow' : 'blue'}
-            onClick={() => toggleColorScheme()}
-            title="Toggle color scheme"
+        <UnstyledButton
+            onClick={toggleColorScheme}
+            title='Toggle colour scheme'
         >
+
             {dark ? (
-                <SunIcon style={{ width: 18, height: 18 }} />
+                <div className='text-xl'>
+                    <RiContrast2Fill />
+                </div>
             ) : (
-                <MoonIcon style={{ width: 18, height: 18 }} />
+                <div className='text-xl'>
+                    <RiContrast2Line />
+                </div>
             )}
-        </ActionIcon>
+        </UnstyledButton>
     );
 }
 export default LightDarkButton;
