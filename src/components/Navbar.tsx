@@ -1,21 +1,28 @@
+import { useMantineColorScheme } from '@mantine/core';
 import LightDarkButton from './LightDarkButton'
 import Logo from './Logo'
 
 const Navbar = () => {
+    const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+    const dark = colorScheme === 'dark';
+
     return (
-        <div className="navbar">
-            <div className="navbar-start">
+        <div className={`navbar  ${dark ? "bg-darkBackground" : "bg-background"}`}>
+            <div className={`navbar-start`}>
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52">
+                    <ul tabIndex={0} className={`mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52  ${dark ? "bg-darkBackground" : "bg-background"}`}>
+                        <li><a href='/chat'>Chat</a></li>
+                        <li><a href='/maps'>Maps</a></li>
+                        <li><a href='/history'>History</a></li>
                         <li>
-                            <a className='text-black'>
+                            <a href="/profile">
                                 Profile
                             </a>
                         </li>
-                        <li><a className='text-black'>Logout</a></li>
+                        <li><a href="/profile">Logout</a></li>
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl">
@@ -28,9 +35,9 @@ const Navbar = () => {
             </div>
             <div className="flex-none gap-2 navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Chat</a></li>
-                    <li><a>Maps</a></li>
-                    <li><a>History</a></li>
+                    <li><a href='/chat'>Chat</a></li>
+                    <li><a href='/maps'>Maps</a></li>
+                    <li><a href='/history'>History</a></li>
                 </ul>
                 <LightDarkButton />
                 <div className="dropdown dropdown-end">
@@ -41,7 +48,7 @@ const Navbar = () => {
                         </div>
                     </div>
                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52">
-                        <li><a>Profile</a></li>
+                        <li><a href='/profile'>Profile</a></li>
                         <li><a>Logout</a></li>
                     </ul>
                 </div>

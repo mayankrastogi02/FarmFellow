@@ -7,6 +7,7 @@ export default {
   theme: {
     colors:{
       "background": "#FFFFFF",
+      "darkBackground": "#242424",
       "black": "#121212",
       "color-primary-100": "#EBFCFD",
       "color-primary-200": "#D7F6FC",

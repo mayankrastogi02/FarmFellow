@@ -17,6 +17,8 @@ import Login from './pages/Login.tsx';
 import Profile from './pages/Profile.tsx';
 import Chat from './pages/Chat.tsx';
 import Landing from './components/Landing.tsx';
+import Maps from './pages/Maps.tsx';
+import ChatHistory from './pages/ChatHistory.tsx';
 
 const router = createBrowserRouter([
   {
@@ -41,13 +43,20 @@ const router = createBrowserRouter([
     element: <Chat />,
   },
   {
+    path: "/maps",
+    element: <Maps />,
+  },
+  {
+    path: "/history",
+    element: <ChatHistory />,
+  },
+  {
     path: "/test",
     element: <div>Test</div>,
   },
 ]);
 
 function App() {
-  const [count, setCount] = useState(0);
   const [colorScheme, setColorScheme] = useLocalStorage({
     key: 'mantine-color-scheme',
     defaultValue: 'light',
@@ -73,10 +82,13 @@ function App() {
       <MantineProvider theme={{ colorScheme }}>
         <div className='flex flex-col items-center font-sans min-h-screen' >
           <div className='w-screen fixed top-0'>
-          <Navbar />
+            <Navbar />
+          </div>
+          <div className='mt-[4rem]'>
+
+            <RouterProvider router={router} />
           </div>
         </div>
-        <RouterProvider router={router} />
       </MantineProvider>
     </ColorSchemeContext.Provider>
   )
