@@ -3,9 +3,7 @@ import './App.css'
 import '@mantine/core/styles.css';
 import ColorSchemeContext from './ColorSchemeContext';
 import { MantineProvider } from '@mantine/core';
-import LightDarkButton from './components/LightDarkButton';
 import { useWindowEvent, useLocalStorage } from '@mantine/hooks';
-import Logo from './components/Logo';
 import Navbar from './components/Navbar';
 import { getUsers } from './utils/dbFunctions';
 import ErrorPage from "./components/ErrorPage.tsx";
@@ -19,6 +17,7 @@ import Chat from './pages/Chat.tsx';
 import Landing from './components/Landing.tsx';
 import Maps from './pages/Maps.tsx';
 import ChatHistory from './pages/ChatHistory.tsx';
+import { UserDataContext } from './utils/globalData.tsx';
 
 const router = createBrowserRouter([
   {
@@ -56,7 +55,10 @@ const router = createBrowserRouter([
   },
 ]);
 
+
 function App() {
+  const [user, setUser] = useState<unknown>()
+  const [userContext, setUserContext] = useState<unknown>();
   const [colorScheme, setColorScheme] = useLocalStorage({
     key: 'mantine-color-scheme',
     defaultValue: 'light',
@@ -70,25 +72,29 @@ function App() {
 
   useEffect(() => {
     async function fetchUsers() {
-      let response = await getUsers();
-      console.log(response);
+      setUserContext(await getUsers())
     }
 
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    setUser(userContext)
+  }, [userContext])
+
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
-        <div className='flex flex-col items-center font-sans min-h-screen' >
-          <div className='w-screen fixed top-0'>
-            <Navbar />
+        <UserDataContext.Provider value={{ user, setUser }}>
+          <div className='flex flex-col items-center font-sans min-h-screen' >
+            <div className='w-screen fixed top-0'>
+              <Navbar />
+            </div>
+            <div className='mt-[4rem]'>
+              <RouterProvider router={router} />
+            </div>
           </div>
-          <div className='mt-[4rem]'>
-
-            <RouterProvider router={router} />
-          </div>
-        </div>
+        </UserDataContext.Provider>
       </MantineProvider>
     </ColorSchemeContext.Provider>
   )
