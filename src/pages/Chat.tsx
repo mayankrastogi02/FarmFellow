@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CohereClient } from 'cohere-ai';
 
 // Initialize the Cohere client
