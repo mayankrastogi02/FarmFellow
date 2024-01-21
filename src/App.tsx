@@ -5,7 +5,6 @@ import ColorSchemeContext from './ColorSchemeContext';
 import { MantineProvider } from '@mantine/core';
 import { useWindowEvent, useLocalStorage } from '@mantine/hooks';
 import Navbar from './components/Navbar';
-import { getUsers } from './utils/dbFunctions';
 import ErrorPage from "./components/ErrorPage.tsx";
 import {
   createBrowserRouter,
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/profile",
+    path: "/profile/:id",
     element: <Profile />,
   },
   {
@@ -82,7 +81,7 @@ function App() {
 
   useEffect(() => {
     async function fetchUsers() {
-      setUserContext(await getUsers())
+      // setUserContext(await getUsers())
     }
 
     fetchUsers();

@@ -10,4 +10,9 @@ async function getUsers() {
     return data;
 }
 
-export { getChats, getUsers };
+async function getFarmerById(id: string) {
+    const { data } = await supabase.from("farm").select().eq("id", Number(id));
+    return data;
+}
+
+export { getChats, getUsers, getFarmerById };
