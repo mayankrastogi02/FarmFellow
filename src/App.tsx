@@ -91,6 +91,10 @@ function App() {
             <div className='w-full'>
               <RouterProvider router={router} />
             </div>
+            <div className="bg-primary-300 h-56 flex flex-col items-center justify-center">
+              <p className='text-5xl font-bold'>FarmFellow</p>
+              <p className='font-light'>Impacting sustainability, one delivery at a time.</p>
+            </div>
           </div>
         </CartContext.Provider>
       </MantineProvider>
