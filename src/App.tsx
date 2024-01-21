@@ -16,6 +16,8 @@ import Cart from './pages/Cart.tsx';
 import Login from './pages/Login.tsx';
 import Profile from './pages/Profile.tsx';
 import Chat from './pages/Chat.tsx';
+import Orders from './pages/Orders.tsx';
+import { CartContext } from './utils/globalData.tsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
     element: <Cart />,
   },
   {
+    path: "/orders",
+    element: <Orders />,
+  },
+  {
     path: "/chat",
     element: <Chat />,
   }
@@ -55,8 +61,7 @@ const router = createBrowserRouter([
 
 
 function App() {
-  const [user, setUser] = useState<unknown>()
-  const [farms, setFarms] = useState<unknown>();
+  const [cart, setCart] = useState();
   const [colorScheme, setColorScheme] = useLocalStorage({
     key: 'mantine-color-scheme',
     defaultValue: 'light',
@@ -70,7 +75,6 @@ function App() {
 
   useEffect(() => {
     async function fetchUsers() {
-      // setUserContext(await getUsers())
     }
 
     fetchUsers();
@@ -79,16 +83,16 @@ function App() {
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
-        {/* <UserDataContext.Provider value={{ user, setUser }}> */}
-        <div className='w-full overflow-hidden'>
-          <div className='flex flex-col items-center font-sans' >
-            <Navbar />
+        <CartContext.Provider value={{ cart, setCart }}>
+          <div className='w-full overflow-hidden'>
+            <div className='flex flex-col items-center font-sans' >
+              <Navbar />
+            </div>
+            <div className='w-full'>
+              <RouterProvider router={router} />
+            </div>
           </div>
-          <div className='w-full'>
-            <RouterProvider router={router} />
-          </div>
-        </div>
-        {/* </UserDataContext.Provider> */}
+        </CartContext.Provider>
       </MantineProvider>
     </ColorSchemeContext.Provider>
   )

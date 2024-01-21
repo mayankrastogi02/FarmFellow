@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Carrots from '../assets/carrots.jpg'
+import { CartContext } from '../utils/globalData';
 
 function Cart() {
     const [counter, setCounter] = useState(0);
+    const { cart } = useContext(CartContext)
+
+    console.log(cart)
     return (
         <div className='flex flex-col'>
             <div className='flex flex-col items-center justify-center w-full mb-4'>
