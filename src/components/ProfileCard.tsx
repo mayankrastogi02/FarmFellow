@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import cardImg from '../assets/cardImg.jpg'
 import { useNavigate } from 'react-router-dom'

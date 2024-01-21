@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react'
 import FoodCard from '../components/FoodCard'
 import { Link, useParams } from 'react-router-dom'

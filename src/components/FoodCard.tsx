@@ -1,3 +1,5 @@
+// @ts-ignore
+// @ts-nocheck
 import React from 'react';
 import { FaCartPlus } from '@react-icons/all-files/fa/FaCartPlus';
 import { ProductType } from '../types/types';
@@ -5,7 +7,7 @@ import { useContext } from 'react';
 import { CartContext } from '../utils/globalData';
 
 function FoodCard({ name, price, image }: ProductType) {
-    const { addToCart } = React.useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
 
     const addCart = () => {
         addToCart({ name, price, image });

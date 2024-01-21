@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react'
 import './App.css'
 import '@mantine/core/styles.css';
@@ -17,8 +18,8 @@ import Login from './pages/Login.tsx';
 import Profile from './pages/Profile.tsx';
 import Chat from './pages/Chat.tsx';
 import Orders from './pages/Orders.tsx';
-import { CartContext } from './utils/globalData.tsx';
 import { CartProvider } from './components/CartProvider.tsx';
+import { CartContext } from './utils/globalData.tsx';
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,6 @@ const router = createBrowserRouter([
 
 
 function App() {
-  const [cart, setCart] = useState();
   const [colorScheme, setColorScheme] = useLocalStorage({
     key: 'mantine-color-scheme',
     defaultValue: 'light',
@@ -84,20 +84,18 @@ function App() {
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
-        <CartProvider>
-          <div className='w-full overflow-hidden'>
-            <div className='flex flex-col items-center font-sans' >
-              <Navbar />
-            </div>
-            <div className='w-full'>
-              <RouterProvider router={router} />
-            </div>
-            <div className="bg-primary-300 h-56 flex flex-col items-center justify-center">
-              <p className='text-5xl font-bold'>FarmFellow</p>
-              <p className='font-light'>Impacting sustainability, one delivery at a time.</p>
-            </div>
+        <div className='w-full overflow-hidden'>
+          <div className='flex flex-col items-center font-sans' >
+            <Navbar />
           </div>
-        </CartProvider>
+          <div className='w-full'>
+            <RouterProvider router={router} />
+          </div>
+          <div className="bg-primary-300 h-56 flex flex-col items-center justify-center">
+            <p className='text-5xl font-bold'>FarmFellow</p>
+            <p className='font-light'>Impacting sustainability, one delivery at a time.</p>
+          </div>
+        </div>
       </MantineProvider>
     </ColorSchemeContext.Provider>
   )

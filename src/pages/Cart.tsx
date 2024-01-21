@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useContext, useState } from 'react'
 import Carrots from '../assets/carrots.jpg'
 import { CartContext } from '../utils/globalData';

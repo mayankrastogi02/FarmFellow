@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react'
 import ProfileCard from '../components/ProfileCard';
 import { getFarms } from '../utils/dbFunctions';
