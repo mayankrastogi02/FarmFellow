@@ -25,6 +25,26 @@ const router = createBrowserRouter([
     element: <ErrorPage />,
   },
   {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/profile/:id",
+    element: <Profile />,
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
+  },
+  {
+    path: "/maps",
+    element: <Maps />,
+  },
+  {
+    path: "/history",
+    element: <ChatHistory />,
+  },
+  {
     path: "/test",
     element: <div>Test</div>,
   },
@@ -53,6 +73,13 @@ function App() {
     }
   });
 
+  useEffect(() => {
+    async function fetchUsers() {
+      // setUserContext(await getUsers())
+    }
+
+    fetchUsers();
+  }, []);
 
   console.log(farms)
 
