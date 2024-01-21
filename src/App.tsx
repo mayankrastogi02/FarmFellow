@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import '@mantine/core/styles.css';
 import ColorSchemeContext from './ColorSchemeContext';
@@ -13,6 +13,8 @@ import {
 import Landing from './components/Landing.tsx';
 import HomePage from './pages/HomePage.tsx';
 import Cart from './pages/Cart.tsx';
+import Login from './pages/Login.tsx';
+import Profile from './pages/Profile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -31,18 +33,6 @@ const router = createBrowserRouter([
   {
     path: "/profile/:id",
     element: <Profile />,
-  },
-  {
-    path: "/chat",
-    element: <Chat />,
-  },
-  {
-    path: "/maps",
-    element: <Maps />,
-  },
-  {
-    path: "/history",
-    element: <ChatHistory />,
   },
   {
     path: "/test",
@@ -81,14 +71,12 @@ function App() {
     fetchUsers();
   }, []);
 
-  console.log(farms)
-
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
         {/* <UserDataContext.Provider value={{ user, setUser }}> */}
         <div className='flex flex-col items-center font-sans min-h-screen' >
-          <div className='w-screen fixed top-0'>
+          <div className='w-screen fixed top-0 z-50'>
             <Navbar />
           </div>
           <div className='w-screen mt-[4rem]'>
