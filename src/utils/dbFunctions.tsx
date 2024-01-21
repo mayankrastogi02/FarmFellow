@@ -14,5 +14,11 @@ async function getFarmerById(id: string) {
     const { data } = await supabase.from("farm").select().eq("id", Number(id));
     return data;
 }
+        
+async function getAllFarms() {
+    const { data } = await supabase.from('farm').select();
 
-export { getChats, getUsers, getFarmerById };
+    return data;
+}
+
+export { getChats, getUsers, getAllFarms as getFarms, getFarmerById };

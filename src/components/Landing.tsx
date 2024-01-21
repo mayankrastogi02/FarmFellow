@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 function Landing() {
     const navigate = useNavigate();
-
     return (
-        <div className="hero min-h-screen">
+        <div className={`hero h-screen`}>
             <div className="hero-content text-center">
                 <div className="max-w-md">
                     <h1 className="text-7xl font-bold">SiloFellow</h1>
