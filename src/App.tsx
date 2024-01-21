@@ -1,11 +1,48 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import '@mantine/core/styles.css';
 import ColorSchemeContext from './ColorSchemeContext';
 import { MantineProvider } from '@mantine/core';
 import LightDarkButton from './components/LightDarkButton';
 import { useWindowEvent, useLocalStorage } from '@mantine/hooks';
+import { getUsers } from './utils/dbFunctions';
+import ErrorPage from "./components/ErrorPage.tsx";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Login from './pages/Login.tsx';
+import Profile from './pages/Profile.tsx';
+import Chat from './pages/Chat.tsx';
+import Landing from './components/Landing.tsx';
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/error",
+    element: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
+  },
+  {
+    path: "/test",
+    element: <div>Test</div>,
+  },
+]);
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,12 +57,19 @@ function App() {
     }
   });
 
+  useEffect(() => {
+    async function fetchUsers() {
+      let response = await getUsers();
+      console.log(response);
+    }
+
+    fetchUsers();
+  }, []);
+
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
-        <div className='flex flex-col items-center'>
-          <LightDarkButton />
-        </div>
+        <RouterProvider router={router} />
       </MantineProvider>
     </ColorSchemeContext.Provider>
   )
