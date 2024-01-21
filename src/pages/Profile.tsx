@@ -15,7 +15,7 @@ function Profile() {
     return (
         // <ProfileCard userData={user[0]} />
         <div className='flex flex-col justify-left'>
-            <div className='flex flex-col items-center justify-center w-screen mb-4'>
+            <div className='flex flex-col items-center justify-center w-screen'>
                 <div className="relative w-screen">
                     {/* Banner Image */}
                     <img
@@ -32,14 +32,14 @@ function Profile() {
                     />
                 </div>
             </div>
-            <div className='flex flex-col mb-4 p-12'>
+            <div className='flex flex-col p-12 pb-0'>
                 <p className='text-left text-2xl font-bold'>Steveston Farms</p>
                 <p className='text-left text-sm'>Vegetables, Poultry, Eggs</p>
                 <button className='text-white rounded-3xl w-24 h-8 mt-4 items-center justify-center flex'>Pickup</button>
             </div>
-            <div className='flex flex-col mb-4 p-12'>
-                <p className='text-left text-2xl mb-8'>Menu</p>
-                <div className='flex flex-row items-center justify-between'>
+            <div className='flex flex-col p-12 pt-8'>
+                <p className='text-left text-2xl mb-4'>Menu</p>
+                <div className='flex flex-wrap items-center justify-between'>
                     {
                         arr.map((item) => {
                             return <FoodCard />
