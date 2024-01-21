@@ -33,9 +33,11 @@ function Profile() {
                 </div>
             </div>
             <div className='flex flex-col p-12 pb-0'>
-                <p className='text-left text-2xl font-bold'>Steveston Farms</p>
+                <div className='flex flex-row items-center justify-start gap-2'>
+                    <p className='text-left text-2xl font-bold'>Steveston Farms</p>
+                    <button className='text-white rounded-3xl w-16 h-6 items-center justify-center flex text-xs'>Pickup</button>
+                </div>
                 <p className='text-left text-sm'>Vegetables, Poultry, Eggs</p>
-                <button className='text-white rounded-3xl w-24 h-8 mt-4 items-center justify-center flex'>Pickup</button>
             </div>
             <div className='flex flex-col p-12 pt-8'>
                 <p className='text-left text-2xl mb-4'>Menu</p>

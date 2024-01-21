@@ -15,7 +15,7 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className={`mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52  ${dark ? "bg-darkBackground" : "bg-background"}`}>
                         <li><a href='/chat'>Orders</a></li>
-                        <li><a href='/maps'>Cart</a></li>
+                        <li><a href='/cart'>Cart</a></li>
                         <li>
                             <a href="/profile">
                                 Profile
@@ -35,7 +35,7 @@ const Navbar = () => {
             <div className="flex-none gap-2 navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><a href='/chat'>Orders</a></li>
-                    <li><a href='/maps'>Cart</a></li>
+                    <li><a href='/cart'>Cart</a></li>
                 </ul>
                 <LightDarkButton />
                 <div className="dropdown dropdown-end">
