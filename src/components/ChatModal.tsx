@@ -26,7 +26,6 @@ function ChatModal() {
             });
 
             // Append the chatbot's response to the chat history
-            console.log(response);
             setMessages([...messages, { role: 'USER', message: input }, { role: 'CHATBOT', message: response.generations[0].text.trim() }]);
 
 

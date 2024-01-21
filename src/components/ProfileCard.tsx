@@ -20,7 +20,7 @@ function ProfileCard(farmData: FarmerType) {
                         <div className="card-actions justify-start">
                             {
                                 category.categories.map((category: any) => {
-                                    return <div className='badge badge-outline'>{category}</div>
+                                    return <div className='badge badge-outline' key={category}>{category}</div>
                                 })
                             }
                         </div>

@@ -18,6 +18,7 @@ import Profile from './pages/Profile.tsx';
 import Chat from './pages/Chat.tsx';
 import Orders from './pages/Orders.tsx';
 import { CartContext } from './utils/globalData.tsx';
+import { CartProvider } from './components/CartProvider.tsx';
 
 const router = createBrowserRouter([
   {
@@ -83,7 +84,7 @@ function App() {
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
-        <CartContext.Provider value={{ cart, setCart }}>
+        <CartProvider>
           <div className='w-full overflow-hidden'>
             <div className='flex flex-col items-center font-sans' >
               <Navbar />
@@ -92,7 +93,7 @@ function App() {
               <RouterProvider router={router} />
             </div>
           </div>
-        </CartContext.Provider>
+        </CartProvider>
       </MantineProvider>
     </ColorSchemeContext.Provider>
   )

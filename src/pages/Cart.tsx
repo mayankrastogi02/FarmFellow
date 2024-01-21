@@ -3,9 +3,13 @@ import Carrots from '../assets/carrots.jpg'
 import { CartContext } from '../utils/globalData';
 
 function Cart() {
-    const [counter, setCounter] = useState(0);
-    const { cart } = useContext(CartContext)
+    const [counter, setCounter] = useState(1);
+    const { cart } = useContext(CartContext);
+    const toggleModal = () => {
+        document.getElementById('confirmation').showModal();
+    }
 
+    console.log("THIS IS CART");
     console.log(cart)
     return (
         <div className='flex flex-col'>
@@ -43,13 +47,25 @@ function Cart() {
                     </div>
                     <div className='flex flex-col items-center justify-center w-1/2'>
                         <p className='text-right'>CAD $1.20</p>
-                        <p className='text-right'>CAD $5.00</p>
-                        <p className='text-right'>CAD $6.20</p>
+                        <p className='text-right'>CAD $0.00</p>
+                        <p className='text-right'>CAD $1.20</p>
                     </div>
                     <div className='flex flex-col items-center justify-center w-1/2 gap-2'>
-                        <button className='text-white rounded-full w-24 h-12 items-center justify-center flex text-xs'>Checkout</button>
-                        <button className='text-white rounded-full w-24 h-12 items-center justify-center flex text-xs'>Clear</button>
+                        <button className='text-white rounded-full w-24 h-12 items-center justify-center flex text-xs' onClick={toggleModal}>Checkout</button>
+                        <button className='text-white rounded-full w-24 h-12 items-center justify-center flex text-xs' onClick={() => { setCounter(0) }}>Clear</button>
                     </div>
+                    <dialog id="confirmation" className="modal modal-bottom sm:modal-middle">
+                        <div className="modal-box">
+                            <h3 className="text-white font-bold text-lg">Order Placed!</h3>
+                            <p className="text-white py-4">Please check your email for the receipt.</p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </div>

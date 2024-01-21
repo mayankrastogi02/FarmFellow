@@ -1,13 +1,14 @@
+import React from 'react';
 import { FaCartPlus } from '@react-icons/all-files/fa/FaCartPlus';
 import { ProductType } from '../types/types';
 import { useContext } from 'react';
 import { CartContext } from '../utils/globalData';
 
 function FoodCard({ name, price, image }: ProductType) {
-    const { cart, setCart } = useContext(CartContext);
+    const { addToCart } = React.useContext(CartContext);
 
     const addCart = () => {
-        setCart([cart, { name, price, image }])
+        addToCart({ name, price, image });
     }
 
     return (
