@@ -18,6 +18,7 @@ import Landing from './components/Landing.tsx';
 import Maps from './pages/Maps.tsx';
 import ChatHistory from './pages/ChatHistory.tsx';
 import { UserDataContext } from './utils/globalData.tsx';
+import HomePage from './pages/HomePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <div>Test</div>,
+  },
+  {
+    path: "/home",
+    element: < HomePage />,
   },
 ]);
 
