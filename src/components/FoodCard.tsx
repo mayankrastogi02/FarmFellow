@@ -3,10 +3,10 @@ import Carrots from '../assets/carrots.jpg'
 import { FaCartPlus } from '@react-icons/all-files/fa/FaCartPlus';
 import { ProductType } from '../types/types';
 
-function FoodCard({ name, price, description }: ProductType) {
+function FoodCard({ name, price, image }: ProductType) {
     return (
         <div className="card card-compact w-64 shadow-xl p-0">
-            <figure><img src={Carrots} alt={name} /></figure>
+            <figure><img className='h-60 object-cover' src={image} alt={name} /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <div className='flex flex-row items-center'>

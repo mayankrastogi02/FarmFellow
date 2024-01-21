@@ -46,7 +46,7 @@ function Profile() {
                 <div className="relative w-screen">
                     {/* Banner Image */}
                     <img
-                        src={CardImg}
+                        src={farmer?.banner_image}
                         alt="Banner"
                         className="w-full h-40 object-cover"
                     />
@@ -72,7 +72,7 @@ function Profile() {
                     {
                         products.map((item) => {
                             console.log(item);
-                            return <FoodCard key={item.name} name={item.name} description={item.description} price={item.price} />
+                            return <FoodCard key={item.name} name={item.name} image={item.image} price={item.price} description='' />
                         })
                     }
                 </div>

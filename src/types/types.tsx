@@ -7,12 +7,14 @@ type FarmerType = {
     profile_picture: string,
     products: string,
     location: string,
+    banner_image: string,
 }
 
 type ProductType = {
     name: string,
     price: string,
     description: string,
+    image: string,
 }
 
 export type { FarmerType, ProductType };
