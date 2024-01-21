@@ -18,7 +18,7 @@ function FoodCard({ name, price, image }: ProductType) {
                 <div className='flex flex-row items-center'>
                     <p className='text-left'>CAD ${price}/ea</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary rounded-full" onClick={addCart}><FaCartPlus /></button>
+                        <button className="btn bg-danger-500 rounded-full" onClick={addCart}><FaCartPlus className='text-white' /></button>
                     </div>
                 </div>
             </div>

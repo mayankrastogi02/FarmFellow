@@ -13,7 +13,7 @@ function HomePage() {
     }, []);
 
     return (
-        <div className='flex flex-col gap-10 mt-16'>
+        <div className='flex flex-col gap-10 m-16'>
             <div className='flex flex-col items-center justify-start w-full mb-4'>
                 <p className='text-4xl font-bold'>Farms Near You</p>
             </div>

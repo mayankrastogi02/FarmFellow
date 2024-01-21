@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import FoodCard from '../components/FoodCard'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getFarmerById } from '../utils/dbFunctions'
 import { FarmerType, ProductType } from '../types/types'
+import { GiFallingStar } from '@react-icons/all-files/gi/GiFallingStar'
+import ChatModal from '../components/ChatModal'
 
 function Profile() {
     const [farmer, setFarmer] = useState<FarmerType>();
@@ -54,12 +56,19 @@ function Profile() {
                     />
                 </div>
             </div>
-            <div className='flex flex-col p-12 pb-0'>
-                <div className='flex flex-row items-center justify-start gap-2'>
-                    <p className='text-left text-2xl font-bold'>{farmer?.name}</p>
-                    <button className='text-white rounded-3xl w-16 h-6 items-center justify-center flex text-xs'>Pickup</button>
+            <div className='flex flex-row items-center justify-between w-screen'>
+                <div className='flex flex-col p-12 pb-0'>
+                    <div className='flex flex-row items-center justify-start gap-2'>
+                        <p className='text-left text-2xl font-bold'>{farmer?.name}</p>
+                        <button className='text-white rounded-3xl w-16 h-6 items-center justify-center flex text-xs'>Pickup</button>
+                    </div>
+                    <p className='text-left text-sm'>{categories}</p>
                 </div>
-                <p className='text-left text-sm'>{categories}</p>
+                <ChatModal />
+                <button className='flex flex-row bg-black rounded-xl p-2 gap-2 mr-12' onClick={() => document.getElementById('chatModal').showModal()}>
+                    <GiFallingStar className='text-white' />
+                    <div className='text-white items-center justify-center flex text-xs italic'>Can you recommend some recipes?</div>
+                </button>
             </div>
             <div className='flex flex-col p-12 pt-8'>
                 <p className='text-left text-2xl mb-4'>Menu</p>
