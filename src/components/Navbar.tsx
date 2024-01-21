@@ -14,9 +14,8 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className={`mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52  ${dark ? "bg-darkBackground" : "bg-background"}`}>
-                        <li><a href='/chat'>Chat</a></li>
-                        <li><a href='/maps'>Maps</a></li>
-                        <li><a href='/history'>History</a></li>
+                        <li><a href='/chat'>Orders</a></li>
+                        <li><a href='/maps'>Cart</a></li>
                         <li>
                             <a href="/profile">
                                 Profile
@@ -25,9 +24,9 @@ const Navbar = () => {
                         <li><a href="/profile">Logout</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">
+                <a className="btn btn-ghost text-xl" href='/'>
                     <Logo />
-                    HealthTech
+                    SiloFellow
                 </a>
             </div>
             <div className='navbar-end flex lg:hidden'>
@@ -35,9 +34,8 @@ const Navbar = () => {
             </div>
             <div className="flex-none gap-2 navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a href='/chat'>Chat</a></li>
-                    <li><a href='/maps'>Maps</a></li>
-                    <li><a href='/history'>History</a></li>
+                    <li><a href='/chat'>Orders</a></li>
+                    <li><a href='/maps'>Cart</a></li>
                 </ul>
                 <LightDarkButton />
                 <div className="dropdown dropdown-end">
