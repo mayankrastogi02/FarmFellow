@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProfileCard from '../components/ProfileCard';
 import { getFarms } from '../utils/dbFunctions';
 function HomePage() {

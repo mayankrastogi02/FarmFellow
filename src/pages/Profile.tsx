@@ -1,9 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
-import ProfileCard from '../components/ProfileCard'
-import { UserDataContext } from '../utils/globalData'
-import { FaStar } from '@react-icons/all-files/fa/FaStar'
-import CardImg from '../assets/cardImg.jpg'
-import Farmer from '../assets/farmer3.jpg'
+import { useEffect, useState } from 'react'
 import FoodCard from '../components/FoodCard'
 import { useParams } from 'react-router-dom'
 import { getFarmerById } from '../utils/dbFunctions'
@@ -71,7 +66,6 @@ function Profile() {
                 <div className='flex flex-wrap items-center justify-between'>
                     {
                         products.map((item) => {
-                            console.log(item);
                             return <FoodCard key={item.name} name={item.name} image={item.image} price={item.price} description='' />
                         })
                     }
