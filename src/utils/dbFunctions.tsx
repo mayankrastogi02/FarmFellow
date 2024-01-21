@@ -10,4 +10,10 @@ async function getUsers() {
     return data;
 }
 
-export { getChats, getUsers };
+async function getAllFarms() {
+    const { data } = await supabase.from('farm').select();
+
+    return data;
+}
+
+export { getChats, getUsers, getAllFarms as getFarms };
