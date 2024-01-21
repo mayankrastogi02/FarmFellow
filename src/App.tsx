@@ -5,6 +5,8 @@ import ColorSchemeContext from './ColorSchemeContext';
 import { MantineProvider } from '@mantine/core';
 import LightDarkButton from './components/LightDarkButton';
 import { useWindowEvent, useLocalStorage } from '@mantine/hooks';
+import Logo from './components/Logo';
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -23,8 +25,10 @@ function App() {
   return (
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
-        <div className='flex flex-col items-center'>
-          <LightDarkButton />
+        <div className='flex flex-col items-center font-sans min-h-screen' >
+          <div className='w-screen fixed top-0'>
+          <Navbar />
+          </div>
         </div>
       </MantineProvider>
     </ColorSchemeContext.Provider>
