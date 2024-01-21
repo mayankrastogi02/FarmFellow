@@ -5,10 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors:{
+    colors: {
       "background": "#FFFFFF",
       "darkBackground": "#242424",
       "black": "#121212",
+      "white": "#FFFFFF",
       "color-primary-100": "#EBFCFD",
       "color-primary-200": "#D7F6FC",
       "color-primary-300": "#C0EBF6",
@@ -55,7 +56,7 @@ export default {
       "color-danger-800": "#932051",
       "color-danger-900": "#7A1348"
     },
-    fontFamily:{
+    fontFamily: {
       sans: ['Inter var', 'Helvetica']
     },
     extend: {},

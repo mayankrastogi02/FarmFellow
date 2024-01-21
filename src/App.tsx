@@ -18,6 +18,8 @@ import Landing from './components/Landing.tsx';
 import Maps from './pages/Maps.tsx';
 import ChatHistory from './pages/ChatHistory.tsx';
 import { UserDataContext } from './utils/globalData.tsx';
+import HomePage from './pages/HomePage.tsx';
+import Cart from './pages/Cart.tsx';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <div>Test</div>,
+  },
+  {
+    path: "/home",
+    element: <HomePage />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 ]);
 
@@ -90,7 +100,7 @@ function App() {
             <div className='w-screen fixed top-0'>
               <Navbar />
             </div>
-            <div className='mt-[4rem]'>
+            <div className='w-screen mt-[4rem]'>
               <RouterProvider router={router} />
             </div>
           </div>
