@@ -75,11 +75,11 @@ function App() {
     <ColorSchemeContext.Provider value={{ colorScheme, onChange: setColorScheme }}>
       <MantineProvider theme={{ colorScheme }}>
         {/* <UserDataContext.Provider value={{ user, setUser }}> */}
-        <div className='flex flex-col items-center font-sans min-h-screen' >
-          <div className='w-screen fixed top-0 z-50'>
+        <div className='w-full overflow-hidden'>
+          <div className='flex flex-col items-center font-sans' >
             <Navbar />
           </div>
-          <div className='w-screen mt-[4rem]'>
+          <div className='w-full mt-[4rem]'>
             <RouterProvider router={router} />
           </div>
         </div>
