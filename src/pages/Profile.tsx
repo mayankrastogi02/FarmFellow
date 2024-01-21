@@ -1,8 +1,14 @@
-import React from 'react'
+import { useContext } from 'react'
+import ProfileCard from '../components/ProfileCard'
+import { UserDataContext } from '../utils/globalData'
 
 function Profile() {
+    const { user } = useContext(UserDataContext)
+    console.log(user)
+
+
     return (
-        <div>Profile</div>
+        <ProfileCard userData={user[0]} />
     )
 }
 
