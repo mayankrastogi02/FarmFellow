@@ -40,10 +40,10 @@ function Chat() {
 
     return (
         <div className="flex flex-col h-[75vh] p-12">
-            <div className="overflow-auto h-full px-24">
+            <div className="overflow-auto h-full px-24 border border-black rounded-xl bg-neutral-200">
                 {messages.map((message, index) => (
                     <div key={index} className={`flex ${message.role === 'USER' ? 'justify-end' : 'justify-start'} p-2`}>
-                        <div className={`rounded-lg px-4 py-2 ${message.role === 'USER' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}>
+                        <div className={`rounded-lg px-4 py-2 ${message.role === 'USER' ? 'bg-success-500 text-white' : 'bg-primary-300 text-black'}`}>
                             <p>{message.message}</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ function Chat() {
                 {isLoading && <div className="p-2">Chatbot is typing...</div>}
             </div>
             <form className="m-2 px-24" onSubmit={sendMessage}>
-                <input className="w-full rounded-md bg-slate-300 border-gray-300 shadow-xl h-8 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 px-4" value={input} onChange={(e) => setInput(e.target.value)} />
+                <input className="w-full rounded-md bg-slate-300 border-gray-300 shadow-xl h-8 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 px-4 text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder='Begin typing here...' />
                 <button className="w-full py-2 px-4 bg-black hover:bg-slate-700 rounded-md text-white text-sm mt-2" type='submit'>Send</button>
             </form>
         </div>

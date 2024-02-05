@@ -7,7 +7,7 @@ function Landing() {
     return (
         <div className={`hero min-h-screen`}>
             <div className="hero-content text-center flex flex-col justify-between">
-                <div className="max-w-md h-screen flex flex-col">
+                <div className="max-w-md h-screen flex flex-col mt-20">
                     <div className="rounded-full mx-auto bg-danger-500">
                         <img src={Care} alt="Care" className="mx-auto object-fit" />
                     </div>
